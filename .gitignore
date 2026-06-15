@@ -12,6 +12,9 @@ data/raw/
 data/external/
 data/interim/
 
+# Project report / presentation assets
+resources/
+
 # Large GIS files
 *.shp
 *.shx
@@ -29,6 +32,3 @@ data/interim/
 # System files
 .DS_Store
 Thumbs.db
-
-# Project report / presentation assets
-resources/
