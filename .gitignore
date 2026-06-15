@@ -29,3 +29,6 @@ data/interim/
 # System files
 .DS_Store
 Thumbs.db
+
+# Project report / presentation assets
+resources/
