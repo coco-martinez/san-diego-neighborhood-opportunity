@@ -1,0 +1,31 @@
+﻿# Jupyter
+.ipynb_checkpoints/
+__pycache__/
+
+# Environment files
+.env
+.venv/
+venv/
+
+# Raw data
+data/raw/
+data/external/
+data/interim/
+
+# Large GIS files
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.sbn
+*.sbx
+*.qpj
+*.geojson
+*.gpkg
+*.gdb/
+*.zip
+
+# System files
+.DS_Store
+Thumbs.db
