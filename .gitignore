@@ -11,6 +11,7 @@ venv/
 data/raw/
 data/external/
 data/interim/
+data/processed/*.csv
 
 # Project report / presentation assets
 resources/
