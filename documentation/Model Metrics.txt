@@ -1,6 +1,6 @@
 Model Metrics
 San Diego Development Opportunity Finder — Capstone 3
-================================================================================
+-----------------------------------------------------------------------------
 
 TARGET VARIABLE
   estimated_median_gross_rent
