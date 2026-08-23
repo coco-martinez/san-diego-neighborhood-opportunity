@@ -71,14 +71,12 @@ For example, I can filter for stronger safety scores, lower climate-loss risk, s
 
 ## Limitations
 
-This is not a development success or property valuation model.
-
-The analysis does not include parcel-level zoning, land cost, construction costs, permitting, unit condition, leasing data, or full countywide crime coverage. Safety data is only reliable within SDPD jurisdiction.
+This is not a development success or property valuation model. It doesn't include parcel-level zoning, land cost, construction costs, permitting, unit condition, leasing data, or full countywide crime coverage. Safety data is only reliable within SDPD jurisdiction.
 
 The regression model explains a little over half of the variation in rent, so the results should be treated as screening signals rather than exact predictions.
 
 ## Future Improvements
 
-Future versions could include parcel and zoning data, permits, housing age and condition, coastal proximity, market trends, better school assignment data, and more detailed SANDAG GIS sources.
+Future versions could include zoning data, permits, housing age, better school assignment data, and more detailed SANDAG GIS sources.
 
 I'd also like to test different target variables and remove income from some models to better understand how the other neighborhood features relate to each other.
