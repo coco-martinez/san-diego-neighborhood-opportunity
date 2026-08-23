@@ -1,1 +1,8 @@
-pandasnumpygeopandasscikit-learnmatplotlibseabornjoblibjupyter
+pandas
+numpy
+geopandas
+scikit-learn
+matplotlib
+seaborn
+joblib
+jupyter
