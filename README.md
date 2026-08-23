@@ -42,8 +42,7 @@ san-diego-development-opportunity-finder/
 │    ├── Capstone 3 Final Report
 │    └── Capstone 3 Final Presentation
 │    └── model_metrics.txt     
-├── notebooks/            # wrangling, EDA, preprocessing, and modeling
-      
+├── notebooks/            # wrangling, EDA, preprocessing, and modeling      
 ├── README.md
 
 ```
@@ -78,7 +77,6 @@ RMSE: about $364
 MAE: about $278
 
 I then used the final model to estimate rent across all 727 tracts. The bottom 10% of residuals, about -$415 or lower, flagged 73 tracts where actual rent was much lower than expected.
-
 
 ## Neighborhood Clusters
 
