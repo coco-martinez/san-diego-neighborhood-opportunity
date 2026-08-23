@@ -7,13 +7,16 @@ __pycache__/
 .venv/
 venv/
 
-# Raw data
+# Data
 data/raw/
 data/external/
 data/interim/
 data/processed/*.csv
 
-# Project report / presentation assets
+# Course materials kept locally
+outlines and rubrics/
+
+# Working report / presentation assets
 resources/
 
 # Large GIS files
