@@ -22,6 +22,30 @@ Main public data sources include:
 
 The final modeling dataset contains 727 tracts and 20 numeric features.
 
+## Reproducing the Project
+
+Raw source files are not stored in this repository. The data can be downloaded from the public sources listed above and placed in the appropriate local data folders before running the notebooks.
+
+Run the notebooks in numerical order from `00_data_wrangling_census.ipynb` through `10_modeling.ipynb`.
+
+## Requirements
+
+This project uses Python and Jupyter Notebook. Main packages include:
+
+- pandas
+- numpy
+- geopandas
+- scikit-learn
+- matplotlib
+- seaborn
+- joblib
+
+Install the required Python packages with:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Project Files
 
 - [Final Project Report](documentation/Capstone%203%20Final%20Report.pdf)
@@ -38,9 +62,9 @@ san-diego-development-opportunity-finder/
 ├── data/
 │   ├── raw/              # original source files
 │   └── processed/        # cleaned and modeling-ready outputs
-├── documentation / # report and presentation visuals
+├── documentation/        # report and presentation visuals
 │    ├── Capstone 3 Final Report
-│    └── Capstone 3 Final Presentation
+│    ├──  Capstone 3 Final Presentation
 │    └── model_metrics.txt     
 ├── notebooks/            # wrangling, EDA, preprocessing, and modeling      
 ├── README.md
@@ -76,6 +100,8 @@ Test R²: 0.566
 RMSE: about $364
 MAE: about $278
 
+![Linear Regression feature effects on predicted rent](documentation/images/linear_regression_feature_effects.png)
+
 I then used the final model to estimate rent across all 727 tracts. The bottom 10% of residuals, about -$415 or lower, flagged 73 tracts where actual rent was much lower than expected.
 
 ## Neighborhood Clusters
@@ -88,29 +114,15 @@ I also tested K-Means clustering and selected 3 clusters:
 
 The silhouette scores were low, so these are broad neighborhood types rather than strict categories.
 
+![Actual rent vs model residual by neighborhood type](documentation/images/rent_residual_by_cluster.png)
+
 ## How I'd Use It
 
 This project is meant to narrow down a large set of tracts before doing more detailed research.
 
 For example, I can filter for stronger safety scores, lower climate-loss risk, school quality, rent level, or neighborhood type, then map the remaining tracts to see where they are located and whether any geographic patterns stand out.
 
-## Requirements
-
-This project uses Python and Jupyter Notebook. Main packages include:
-
-- pandas
-- numpy
-- geopandas
-- scikit-learn
-- matplotlib
-- seaborn
-- joblib
-
-Install dependencies with:
-
-```bash
-pip install -r requirements.txt
-```
+![Example candidate tract screening map](documentation/images/candidate_tract_map.png)
 
 ## Limitations
 
@@ -122,4 +134,5 @@ The regression model explains a little over half of the variation in rent, so th
 
 Future versions could include zoning data, permits, housing age, better school assignment data, and more detailed SANDAG GIS sources.
 
-I'd also like to test different target variables and remove income from some models to better understand how the other neighborhood features relate to each other.
+I'd also want to test different target variables and remove income from some models to better understand how the other neighborhood features relate to each other.
+
