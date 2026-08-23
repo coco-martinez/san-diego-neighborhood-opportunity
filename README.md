@@ -53,7 +53,7 @@ pip install -r requirements.txt
 - [EDA Notebook](notebooks/08_eda.ipynb)
 - [Preprocessing Notebook](notebooks/09_preprocessing.ipynb)
 - [Modeling Notebook](notebooks/10_modeling.ipynb)
-- [Final Presentation](documentation/Final%20Presentation.pdf)
+- [Final Presentation](documentation/Capstone_3_Final_Presentation.pdf)
 
 ## Project Structure
 
