@@ -1,0 +1,117 @@
+Model Metrics
+San Diego Development Opportunity Finder — Capstone 3
+================================================================================
+
+TARGET VARIABLE
+  estimated_median_gross_rent
+
+FEATURES (20 numeric features)
+  walkability_index, public_transit_commute_rate, no_vehicle_rate,
+  work_from_home_rate, climate_loss_risk_score, heat_risk_score,
+  flood_risk_score, wildfire_risk_score, social_vulnerability_score,
+  school_academic_score, median_household_income, poverty_rate,
+  unemployment_rate, renter_rate, vacancy_rate, population_under_18_rate,
+  avg_household_size, median_age, transit_stop_density_log, school_density_log
+
+TRAIN/TEST SPLIT
+  80/20 (random_state=42), scaler fit on training data only,
+  saved via joblib as regression_scaler.joblib
+
+-----------------------------------------------------------------------------
+MODEL 1: LINEAR REGRESSION  (FINAL / SELECTED MODEL)
+
+Settings: default LinearRegression
+
+Performance:
+  Train R^2:   0.504
+  Test R^2:    0.566
+  Test RMSE:   $364.39
+  Test MAE:    $277.74
+
+Coefficients: approximate change in predicted monthly rent for a 1 standard deviation increase in each feature.
+
+  feature                        coefficient
+  median_household_income           +231.51
+  climate_loss_risk_score           -134.02
+  flood_risk_score                  +130.51
+  heat_risk_score                    -64.59
+  school_academic_score              +60.22
+  median_age                         -56.01
+  avg_household_size                 -54.99
+  unemployment_rate                  -47.16
+  social_vulnerability_score         -43.75
+  no_vehicle_rate                    -39.23
+  transit_stop_density_log           -36.01
+  poverty_rate                       -24.48
+  walkability_index                  -22.73
+  renter_rate                        -18.83
+  population_under_18_rate           -15.91
+  public_transit_commute_rate        -10.38
+  vacancy_rate                        -7.25
+  school_density_log                  -5.97
+  wildfire_risk_score                 -3.85
+  work_from_home_rate                 +1.79
+
+-----------------------------------------------------------------------------
+MODEL 2: RANDOM FOREST REGRESSOR (TUNED)
+
+Tuning: GridSearchCV, 5-fold cross-validation on training data,
+scoring = neg_root_mean_squared_error
+
+Hyperparameter grid tested:
+  n_estimators:      [200, 300, 500]
+  max_depth:         [5, 8, 12, None]
+  min_samples_leaf:  [1, 3, 5, 10]
+
+Best hyperparameters:
+  n_estimators:      500
+  max_depth:         12
+  min_samples_leaf:  10
+Best CV RMSE (training folds): $372.15
+
+Performance:
+  Train R^2:   0.696
+  Test R^2:    0.535
+  Test RMSE:   $377.41
+  Test MAE:    $281.14
+
+-----------------------------------------------------------------------------
+MODEL COMPARISON
+
+  model                  train_r2   test_r2   test_rmse   test_mae
+  Linear Regression         0.504     0.566      364.39     277.74
+  Tuned Random Forest       0.696     0.535      377.41     281.14
+
+Selected model: Linear Regression
+
+Reasoning: Linear Regression performed slightly better on the test set and had a smaller train/test gap, so I kept it as the final model.
+
+-----------------------------------------------------------------------------
+UNSUPERVISED MODEL: K-MEANS CLUSTERING (neighborhood types)
+
+Silhouette scores:
+  k=2: 0.183
+  k=3: 0.181
+Selected k: 3
+
+Reasoning: k=2 had a slightly better silhouette score, but k=3 gave me more useful neighborhood groups. Two groups felt too broad for this project.
+
+k = 3 clusters, fit on the same 20 scaled features across all 727 tracts
+
+Cluster labels assigned:
+  0 - Affluent Suburban Families
+  1 - Transit Family Renters
+  2 - Urban Renters
+
+Cluster sizes:
+  0: 316 tracts
+  1: 270 tracts
+  2: 141 tracts
+
+Note: The silhouette scores were low, so the clusters overlap quite a bit. I use them as broad neighborhood types, not strict categories.
+
+-----------------------------------------------------------------------------
+SCREENING OUTPUT
+
+Residual cutoff (bottom 10%): -$414.50
+Flagged tracts: 73 of 727
