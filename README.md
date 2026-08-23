@@ -29,11 +29,37 @@ san-diego-development-opportunity-finder/
 ├── data/
 │   ├── raw/              # original source files
 │   └── processed/        # cleaned and modeling-ready outputs
+├── documentation / # report and presentation visuals
+│    ├── Capstone 3 Final Report
+│    └── Capstone 3 Final Presentation
+│    └── model_metrics.txt     
 ├── notebooks/            # wrangling, EDA, preprocessing, and modeling
-├── resources/            # report and presentation visuals
+      
 ├── README.md
-└── model_metrics.txt
+
 ```
+## Notebook Order
+
+1. `00_data_wrangling_census.ipynb` — cleans ACS demographic and housing data
+2. `01_data_wrangling_crime.ipynb` — cleans crime data and creates tract-level safety features
+3. `02_data_wrangling_walkability.ipynb` — prepares EPA walkability data
+4. `03_data_wrangling_transit.ipynb` — creates tract-level transit features
+5. `04_data_wrangling_climate.ipynb` — prepares FEMA climate and risk features
+6. `05_data_wrangling_schools.ipynb` — creates school and district-level features
+7. `06_data_wrangling_final_merge_0.ipynb` — combines the cleaned source datasets
+8. `07_data_wrangling_final_merge_1.ipynb` — handles final merge fixes and missing data
+9. `08_eda.ipynb` — explores feature relationships and tract patterns
+10. `09_preprocessing.ipynb` — prepares the 20 modeling features and train/test split
+11. `10_modeling.ipynb` — compares regression models, runs clustering, and creates residual screening outputs
+
+## Project Files
+
+- [Final Project Report](documentation/Capstone%203%20Final%20Report.pdf)
+- [Model Metrics](documentation/Model%20Metrics.txt)
+- [EDA Notebook](notebooks/08_eda.ipynb)
+- [Preprocessing Notebook](notebooks/09_preprocessing.ipynb)
+- [Modeling Notebook](notebooks/10_modeling.ipynb)
+- [Final Presentation](documentation/Final%20Presentation.pdf)
 
 ## Modeling
 
@@ -68,6 +94,24 @@ The silhouette scores were low, so these are broad neighborhood types rather tha
 This project is meant to narrow down a large set of tracts before doing more detailed research.
 
 For example, I can filter for stronger safety scores, lower climate-loss risk, school quality, rent level, or neighborhood type, then map the remaining tracts to see where they are located and whether any geographic patterns stand out.
+
+## Requirements
+
+This project uses Python and Jupyter Notebook. Main packages include:
+
+- pandas
+- numpy
+- geopandas
+- scikit-learn
+- matplotlib
+- seaborn
+- joblib
+
+Install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Limitations
 
